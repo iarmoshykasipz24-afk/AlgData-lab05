@@ -31,3 +31,7 @@ void printAll(string title, IEnumerable<Student> items)
 printAll("Original", students);
 
 record Student(string Surname, string Group, int Grade, int Year);
+
+printAll("1. By surname", students.OrderBy(s => s.Surname, uk));
+printAll("2. By grade, descending", students.OrderByDescending(s => s.Grade));
+printAll("3. By group, then by grade descending", students.OrderBy(s => s.Group, uk).ThenByDescending(s => s.Grade));
